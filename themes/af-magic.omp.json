@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "type":"prompt",
+      "segments": [{
+        "style":"plain",
+        "type": "text",
+        "foreground": "#ffffff",
+        "template": "<d>{{ .Env.Dash }}</d>"
+      }]
+    },
+    {
+      "newline": true,
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#2e9eee",
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path",
+          "properties": {
+            "style": "full"
+          }
+        },
+        {
+          "type": "poshgit",
+          "style": "powerline"
+        },
+        {
+          "style":"plain",
+          "type":"text",
+          "foreground": "#9a9bfb",
+          "template": "\uf101"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "type": "rprompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground": "#c53822",
+          "style": "diamond",
+          "template": " {{ if gt .Code 0 }} {{ .Meaning }}{{ else }}\uf42e{{ end }} ",
+          "trailing_diamond": "<#c53822>\ufb0b</>",
+          "type": "exit"
+        },
+        {
+          "style": "plain",
+          "template": "<d> {{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }}@{{ .HostName }}</d>",
+          "type": "session"
+        }
+      ]
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
